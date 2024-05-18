@@ -4,13 +4,14 @@ Deletion-resilient hypermedia pagination
 """
 
 import csv
-import math
 from typing import List, Dict
 
 
 class Server:
-    """Server class to paginate a database of popular baby names.
     """
+    Server class to paginate a database of popular baby names.
+    """
+
     DATA_FILE = "Popular_Baby_Names.csv"
 
     def __init__(self):
@@ -40,7 +41,18 @@ class Server:
         return self.__indexed_dataset
 
     def get_hyper_index(self, index: int = None, page_size: int = 10) -> Dict:
-        ''' returns a dict will all data  '''
+        '''
+        Returns a dictionary with all data.
+
+        Parameters:
+        index (int): The starting index to retrieve data from the
+        indexed dataset.
+        page_size (int): The number of items to retrieve.
+
+        Returns:
+        Dict: A dictionary containing the index, next index, page size,
+        and data retrieved based on the provided index and page size.
+        '''
         data = self.indexed_dataset()
         assert index < len(data)
         page_data = []
